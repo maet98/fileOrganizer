@@ -1,0 +1,13 @@
+[Unit]
+Description=A file organizer written in go
+Documentation=https://github.com/maet98/fileOrganizer
+Wants=sound.target
+After=sound.target
+
+[Service]
+ExecStart=/bin/fileOrganizer
+Restart=always
+RestartSec=12
+
+[Install]
+WantedBy=default.target

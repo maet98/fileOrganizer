@@ -1,4 +1,5 @@
 {
+    "default": "/Downloads",
     "pdf": "/Documents/pdf",
     "xls": "/Documents/excel",
     "c" : "/Repository/code/c",

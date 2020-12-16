@@ -11,19 +11,20 @@ import (
 	"github.com/fsnotify/fsnotify"
 )
 
-//
 var watcher *fsnotify.Watcher
 var dir = "/home/miguelarch/Downloads"
 var directories map[string]string
 
 func init() {
-	var buffer, err = ioutil.ReadFile("./config.json")
+	log.SetOutput(os.Stdout)
+	home, err := os.UserHomeDir()
+	buffer, err := ioutil.ReadFile(home + "/.config/fileOrganizer/config.json")
 	if err != nil {
 		log.Fatal(err)
 	}
 	json.Unmarshal([]byte(buffer), &directories)
 	log.Println(directories)
-	home, err := os.UserHomeDir()
+	dir = home + directories["default"]
 	for _, value := range directories {
 		dir := home + value
 		if _, err := os.Stat(dir); os.IsNotExist(err) {
