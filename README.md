@@ -20,7 +20,7 @@ systemctl --user start fileOrganizer.service
 ### Configuration
 The config file is config.json. The first key **"default"** is the directory where the deamon would be listening and moving the files and directories to their destination.
 
-To add a new type of file you have to put the file extencion as key and the directory where you want to put it as value.
+To add a new type of file you have to put the file extension as key and the directory where you want to put it as value.
 ```json
 {
     "pdf": "/Documents/pdf"
