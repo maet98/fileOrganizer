@@ -86,15 +86,10 @@ func main() {
 	go func() {
 		for {
 			select {
-			// watch for events
 			case event := <-watcher.Events:
-				fmt.Printf("EVENT! %#v\n", event)
-				fmt.Printf(event.Op.String())
-				if event.Op.String() == "CREATE" {
+				if event.Op.String() == "CHMOD" {
 					move(event.Name)
 				}
-				//move(event.Name)
-				// watch for errors
 			case err := <-watcher.Errors:
 				fmt.Println("ERROR", err)
 			}
